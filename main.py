@@ -1,7 +1,8 @@
 from tkinter import filedialog
 from tkinter import *
 from functools import partial
-import tkSnack
+#import tkSnack
+from playsound import playsound
 import pickle
 import os
 
@@ -9,7 +10,7 @@ import os
 win = Tk()
 win.winfo_toplevel().title("Soundboard")
 win.geometry("550x300") # Width x Height
-tkSnack.initializeSnack(win)
+#tkSnack.initializeSnack(win)
 button_identities = []
 audiofiles = {}
 
@@ -37,12 +38,13 @@ def action(n):
     if (var.get() == "OFF"):
         # play sound
         #bname.configure(text="clicked")
-        snd = tkSnack.Sound()
+        #snd = tkSnack.Sound()
         #snd.read('sound'+str(n)+'.wav')
         print("Value of audiofiles[n] is:")
         print(audiofiles.get(n, 'nix'))
-        snd.read(audiofiles.get(n, 'nix'))
-        snd.play(blocking=0)
+        #snd.read(audiofiles.get(n, 'nix'))
+        #snd.play(blocking=0)
+        playsound(audiofiles.get(n, 'nix'), block = False)
         # sound done
         # bname.configure(text=n)
     else:
