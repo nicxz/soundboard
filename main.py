@@ -36,7 +36,6 @@ def action(n):
     print(n)
     bname = (button_identities[n])
     if (var.get() == "OFF"):
-        # play sound
         #bname.configure(text="clicked")
         #snd = tkSnack.Sound()
         #snd.read('sound'+str(n)+'.wav')
@@ -71,7 +70,7 @@ for i in range(9):
     # add the button's identity to a list:
     button_identities.append(button)
 
-for j in range(10, 19):
+for j in range(9, 19):
     # creating the buttons in the right column, assigning a unique argument (j) to run the function (change)
     button = Button(win, width=10, text=str(j), command=partial(action, j)).place(x=200, y=(j-10)*33)
     if (audiofiles.get(j, 'nix') != 'nix'):
